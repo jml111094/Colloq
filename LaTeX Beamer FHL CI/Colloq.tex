@@ -17,8 +17,9 @@
 \usepackage{helvet} 
 \usepackage{setspace}
 \renewcommand{\familydefault}{\sfdefault}
-%\usepackage[version-1-compatibility]{siunitx}
-%\sisetup{detect-family, locale=DE}
+\usepackage[version-1-compatibility]{siunitx}
+\sisetup{detect-family, locale=DE}
+\usepackage{units}
 %
 % Dick der Folientitel 1. Folie
 %
@@ -30,7 +31,7 @@
 \newcommand{\real}[1]{\ensuremath{\mathrm{Re}\hspace{-0.12em}\left\{#1\right\}}}
 \newcommand{\imag}[1]{\ensuremath{\mathrm{Im}\hspace{-0.12em}\left\{#1\right\}}}
 \newcommand{\ex}[1]{\ensuremath{e^{#1}}}
-\newcommand{\si}[1]{\ensuremath{\mathrm{si}\left(#1\right)}}
+%\newcommand{\si}[1]{\ensuremath{\mathrm{si}\left(#1\right)}}
 \newcommand{\rect}[1]{\ensuremath{\mathrm{rect}\left(#1\right)}}
 \newcommand{\tri}[1]{\ensuremath{\mathrm{tri}\left(#1\right)}}
 \newcommand{\mycos}[1]{\ensuremath{\cos{\left(#1\right)}}}
@@ -40,6 +41,11 @@
 \newcommand{\maker}[1]{\textcolor{red!80!black}{#1}}
 \newcommand{\makeg}[1]{\textcolor{green!74!black}{#1}}
 \newcommand{\makeb}[1]{\textcolor{blue!80!black}{#1}}
+\newcommand{\eqotwo}{EQO\textsubscript{2}}
+\newcommand{\eqcotwo}{EQCO\textsubscript{2}}
+\newcommand{\votwo}{\.{V}O\textsubscript{2}}
+\newcommand{\vcotwo}{\.{V}CO\textsubscript{2}}
+\newcommand{\ve}{\.{V}E}
 %
 % -----------------------------------------------------------
 % Begin
@@ -56,7 +62,7 @@
     \normalsize Bachelorthesis\\
     \textcolor{fhlred}{\HRuleFill[0.1ex]} \\ \vspace{4ex}
     \small Julian-Marvin Lütten\\
-    \small Fachschule Lübeck\\
+    \small Fachschule Lübeck, B.Sc. Biomedizintechnik\\
     \vspace{2ex}
     \small Angefertigt bei der\\
     \small cardioscan GmbH
@@ -65,12 +71,14 @@
 \begin{frame}{Inhalt}
 \tableofcontents
 \end{frame}
-
+% -----------------------------------------------------------
+% Kapitel 1: Einleitung
+% -----------------------------------------------------------
 \section{Einleitung}
 
 \begin{frame}{Wissenschaftlicher Kontext}
 \begin{itemize}
-	\item die cardioscan GmbH bietet Kunden Leistungsdiagnostik-Systeme zum Definieren von Trainingsbereichen 
+	\item Die cardioscan GmbH bietet Kunden Leistungsdiagnostik-Systeme zum Definieren von Trainingsbereichen 
 	\item Verfahren: nicht-invasive Spiroergometrie (aus lat. \textsl{spirare}: atmen, griech. \textsl{ergo}: Arbeit)
 	\item 14,4 \% Anstieg von Gesamtanzahl an Fitnessstudio-Mitgliedern zwischen 2014 und 2017 (44 \% aller Betreiber im Sektor Gesundheits und Prävention)
 	\item zukünftiges Setup: \textsl{cardioscan Checkpoint Software (CCPS)} + \textsl{metabolicscan} Spiroergometer + Fahrradergometer
@@ -96,7 +104,7 @@
 \item aufgeteilt in primäre und sekundäre Energiegewinnung
 \end{itemize}
 \begin{columns}
-\begin{column}{0.5\linewidth}
+\begin{column}[t]{0.5\linewidth}
 \begin{itemize}
 	\item Primär: hydrolytische ATP-Spaltung als Energiequelle
 	\item ATP-Muskelanteil reicht für ca. 1-2 s körperliche Arbeit
@@ -104,7 +112,7 @@
 	\item CrP-Konzentration für andauernde Belastung zu niedrig
 \end{itemize}
 \end{column}
-\begin{column}{0.5\linewidth}
+\begin{column}[t]{0.5\linewidth}
 \begin{itemize}
 	\item Sekundär: aerobe und anaerob-laktazide Glykolyse
 	\item Glukose wird enzymatisch zu Pyruvat verarbeitet
@@ -131,19 +139,19 @@
 \item "`Schwellen"' = physiologisch bedingte Übergangsbereiche
 \item Ur-Begriff: Aerobe und anaerobe Schwelle (nach K. Wasserman, 1973)
 \item Heute: einheitliche Nomenklatur: 1. und 2. Ventilatorische Schwelle
-\item angegeben entweder in Form der Leistung (W) in W oder Herzfrequenz (HF) in 1/min
+\item angegeben entweder in Form der Leistung (W) in \si{\watt} oder Herzfrequenz (HF) in \si{\second}
 \item Pathophysiologische Indikatoren:
 \end{itemize}
 \begin{columns}
-\begin{column}{5cm}
+\begin{column}[t]{5cm}
 \begin{block}{VT1}
 \begin{itemize}
-\item Steigerung der Ventilation ($\dot{V}E$)
-\item Zunahme der $\dot{V}CO_2$ gegenüber der $\dot{V}O_2$
+\item Steigerung der Ventilation (\.{V}E)
+\item Zunahme der \.{V}CO\textsubscript{2} gegenüber der \.{V}O\textsubscript{2}
 \end{itemize}
 \end{block}
 \end{column}
-\begin{column}{5cm}
+\begin{column}[t]{5cm}
 \begin{block}{VT2}
 \begin{itemize}
 \item Laktatexzess
@@ -180,19 +188,19 @@
 \item zwei Methoden für jede Schwelle werden in dieser Arbeit untersucht
 \end{itemize}
 \begin{columns}
-\begin{column}{5cm}
+\begin{column}[t]{5cm}
 \begin{block}{VT1}
 \begin{enumerate}
-\item V-Slope: erster überproportionaler Anstieg der $\dot{V}CO_2$ gegenüber der $\dot{V}O_2$
-\item alleiniger Anstieg des Sauerstoff-Äquivalents $EQO_2$
+\item V-Slope: erster überproportionaler Anstieg der \vcotwo{} gegenüber der \votwo
+\item alleiniger Anstieg des Sauerstoff-Äquivalents \eqotwo
 \end{enumerate}
 \end{block}
 \end{column}
-\begin{column}{5cm}
+\begin{column}[t]{5cm}
 \begin{block}{VT2}
 \begin{enumerate}
-\item überproportionaler Anstieg der $\dot{V}E$ gegenüber der $\dot{V}CO_2$
-\item Anstieg des Kohlenstoffdioxid-Äquivalents $EQCO_2$
+\item überproportionaler Anstieg der \ve{} gegenüber der \vcotwo
+\item Anstieg des Kohlenstoffdioxid-Äquivalents \eqcotwo
 \end{enumerate}
 \end{block}
 \end{column}
@@ -213,11 +221,178 @@
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=40mm]{Bilder/eqo2.png}
-\caption{Schematische Darstellung des EQO\textsubscript{2}}
+\caption{Schematische Darstellung des \eqotwo}
 \end{center}
 \end{figure}
 \end{column}
 \end{columns}
+\end{frame}
+
+\begin{frame}{Spiroergometrie: Bestimmung der VT1}
+\begin{columns}
+\begin{column}[t]{5cm}
+\begin{block}{V-Slope}
+	\begin{itemize}
+		\item grafischer Vergleich der \vcotwo{} und \votwo
+		\item Identifizierung charakteristischer Knickpunkte in der Steigung (engl: \textsl{slope})
+	\end{itemize}
+\end{block}
+\end{column}
+\begin{column}[t]{5cm}
+\begin{block}{\eqotwo}
+	\begin{itemize}
+		\item grafischer Vergleich des Verhältnisses aus \ve{} und \votwo{} zur Zeit in \si{\minute} oder Leistung in \si{\watt}
+		\item Tiefpunkt der \eqotwo-Kurve = POW (Hollmann, 1958) = VT1
+	\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Spiroergometrie: Bestimmung der VT2}
+\begin{columns}
+	\begin{column}{5cm}
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[width=40mm]{Bilder/eqco2.png}
+				\caption{Schematische Darstellung des EQCO\textsubscript{2}}
+			\end{center}
+		\end{figure}
+	\end{column}
+	\begin{column}{5cm}
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[width=40mm]{Bilder/field4.png}
+				\caption{Schematische Darstellung von $\dot{V}E/\dot{V}CO_2$} 
+			\end{center}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Spiroergometrie: Bestimmung der VT2}
+\begin{columns}
+	\begin{column}[t]{5cm}
+		\begin{block}{\eqcotwo}
+			\begin{itemize}
+				\item grafischer Vergleich des Verhältnisses aus \ve{} und \vcotwo{} zur Zeit in \si{\minute} oder Leistung in \si{\watt}
+				\item charakteristische "`Badewannenform"'
+				\item Anstieg der Kurve = VT2
+			\end{itemize}
+		\end{block}
+	\end{column}
+	\begin{column}[t]{5cm}
+		\begin{block}{\ve/\vcotwo}
+			\begin{itemize}
+				\item grafischer Vergleich der \ve{} und \vcotwo{}, Analogie zum V-Slope
+				\item überproportionale Steigungszunahme = VT2
+			\end{itemize}
+		\end{block}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Fazit zur Problemstellung}
+\begin{itemize}
+	\item RQ = 1 ist als Methode in Studien umstritten
+	\item RQ = 1 ist beeinflussbar (z.B. durch Ernährung)
+	\item RQ = 1 wird unzureichend bei muskulärer Erschöpfung
+	\item CCPS muss mit einem neuen und besseren Algorithmus optimiert werden
+	\item vier alternative Methoden zur Bestimmung der VT1 und VT2 sind zu untersuchen
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Ziele der Arbeit}
+\begin{block}{Forschungsfragen}
+\begin{enumerate}
+	\item Eignet sich der metabolicscan zur Durchführung der Spiroergometrie?
+	\item Mit welcher Methode können die Schwellen optimal bestimmt werden?
+	\item Ist eine genauere Bestimmung der VT2 mit den neuen Methoden möglich?
+\end{enumerate}
+\end{block}
+\end{frame}
+% -----------------------------------------------------------
+% Kapitel 2: Methoden
+% -----------------------------------------------------------
+\section{Methoden}
+
+\begin{frame}{Testprojekt}
+\begin{itemize}
+	\item spiroergometrische Testmessungen mit 28 internen und externen Probanden
+	\item Personen zwischen 18 und 60 Jahren
+	\item Sportler und Nicht-Sportler
+	\item Raucher sowie Nichtraucher
+	\item Messwerterfassung zur grafischen Auswertung mittels ausgewählter Methoden zur Schwellenbestimmung
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Material \& Testaufbau}
+\begin{itemize}
+	\item Laptop mit CCPS + angebundenes Ergometer der Firma \textsl{Emotion Fitness}
+	\item zur vorangehenden Abklärung der kardialen Gesundheit: \textsl{cardioscan cs-3 effect} für Ruhe-EKG
+	\item kalibriertes Modell des metabolicscan
+	\item für jeden Probanden ein unbenutzter antibakterieller Polypropylen-Filter + flexibles Elastomer-Mundstück
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Funktionsweise des metabolicscan}
+\begin{itemize}
+	\item Modularer Aufbau: Atemmodul + Analysemodul
+	\item Atemmodul enthält einen Flowsensor
+	\item Messung der Strömungsgeschwindigkeit der Inspirations- und Exspirationsluft
+	\item Berechnung des Strömungsvolumens durch mathematische Integration über die Zeit
+	\item Analysemodul enthält CO\textsubscript{2}/O\textsubscript{2}-Sensormodul
+	\item Pumpe saugt Luftanteil durch Probenschlauch zur Analyseeinheit
+	\item CO\textsubscript{2}-Messung durch Infratotlichtabsorption
+	\item Weiterleitung zum galvanischen O\textsubscript{2}-Sensor
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Aufbau des metabolicscan}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=7cm]{Bilder/mbs.jpg}
+	\caption{metabolicscan: Analyseeinheit (rechts), Atemmodul (oben links), Filter (unten links) und Mundstück (blau)}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Messbedingungen}
+\begin{itemize}
+	\item alle Messungen im selben Raum
+	\item Raumtemperatur zwischen \SI{18}{\degreeCelsius} und \SI{22}{\degreeCelsius}
+	\item vor jeder Messung Belüftung des Raumes zur Minimierung des CO\textsubscript{2}-Anteils der Luft
+	\item Ausschlusskriterien: akute fiebrige Infekte, Herz-Kreislauf-Erkrankungen, chronische Atemwegserkrankungen und Schwangerschaft
+	\item keine anstrengenden Sporteinheiten am Vortag
+	\item zwei Stunden vor der Messung keine Mahlzeiten/kein Koffein mehr
+	\item gleichbleibende Trittfrequenz während der Messung
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Vorbereitung einer Messung}
+\begin{itemize}
+	\item Risikoabklärung + Anamnesebericht
+	\item Ermittelung von Körpergewicht und Körpergröße
+	\item Abklärung des Trainings- und Gesundheitszustandes
+	\item zweiminütiger Herz-Stress-Test mit cardioscan
+	\item Anlegen des Pulsgurtes zur HF-Überwachung während der Messung
+	\item Justierung des Ergometer-Sattels
+	\item Berechnung der maximalen Soll-Leistung in \si{\watt} mittels zweier Formeln (Jones und SHIP)
+	\item Bestimmung des individuellen Belastungsprotokolls nach WHO- oder BAL-Schema (abhängig vom Trainingszustand)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Abbruchkriterien}
+\begin{itemize}
+	\item fallende HF trotz zunehmender Belastung
+	\item allgemeine Herzbeschwerden, Engegefühl in der Brust
+	\item Atemnot
+	\item auffällige Blässe
+	\item akute Kopfschmerzen
+	\item Schwindel oder Sehstörungen
+	\item starke subjektive Erschöpfung
+	\item Beinschwäche oder Muskelkrämpfe
+	\item andauernder Abfall der Trittfrequenz
+\end{itemize}
 \end{frame}
 
 \end{document}
