@@ -1,0 +1,69 @@
+% Copyright 2003 by Till Tantau <tantau@users.sourceforge.net>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+\newcommand*{\HRuleFill}[1][.1pt]{%
+\leavevmode\leaders\hrule height#1\hfill\kern0pt\relax}
+%\definecolor{iisgreen}{rgb}{0,0.624,.494}
+\definecolor{fhlred}{rgb}{0.9686, 0.2039, 0.1608}
+
+
+\def\tmp{}
+
+%\setbeamercolor{section in head/foot}{parent=palette tertiary}
+%\setbeamercolor{subsection in head/foot}{parent=palette secondary}
+%\setbeamercolor{author in head/foot}{parent=subsection in head/foot}
+%\setbeamercolor{title in head/foot}{parent=section in head/foot}
+
+%\defbeamertemplate*{sidebar right}{IIS theme}
+\defbeamertemplate*{sidebar right}{FHL theme}
+{
+%  \vfill%
+%  \llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+%  \hfill%
+%  \vskip2pt%
+}
+
+
+\defbeamertemplate*{footline}{FHL theme}
+{%
+  \begin{beamercolorbox}[leftskip=.69cm,rightskip=.69cm]{title in head/foot}% plus1fil
+%    \usebeamertemplate***{navigation symbols}
+    \hfill%
+    {\insertframenumber /\inserttotalframenumber}%
+    \vskip.11cm%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[leftskip=.69cm,rightskip=.69cm]{title in head/foot}%
+    \color{fhlred}\HRuleFill[0.4ex]
+    \vskip.2cm%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[leftskip=.69cm,rightskip=.69cm]{title in head/foot}%
+	\pgfdeclareimage[height=0.17cm]{institute-copyright}{PDF/fhl_copyright}%
+	\pgfuseimage{institute-copyright}
+	\pgfdeclareimage[height=0.6cm]{institute-logo}{PDF/fhl_logo}%
+    \hspace{8.05cm}\raisebox{-2mm}{\pgfuseimage{institute-logo}}\hspace{2mm} \vspace{-2mm}%
+    \hfill%
+    \vskip.43cm%
+  \end{beamercolorbox}%
+}
+
+\mode<presentation>
+
+\defbeamertemplate*{headline}{FHL theme}
+{%
+  \begin{beamercolorbox}[leftskip=.49cm,rightskip=.69cm]{section in head/foot}
+  	\vskip.7cm% 			Abstand Linie von oben
+  \end{beamercolorbox}%
+  \ifx\insertsection\tmp
+  \else
+	\begin{beamercolorbox}[leftskip=.49cm,rightskip=.69cm]{section in head/foot}
+	\bf
+      	\setbeamerfont{section in head/foot}{size=\Large}
+      	{\usebeamerfont{section in head/foot}\usebeamercolor[black]{section in head/foot} \textcolor{fhlred}{\arabic{section}.}\hspace{0.5em}\insertsection}%
+  	\end{beamercolorbox}%
+  	\fi
+}
+
+\mode
+<all>

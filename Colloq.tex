@@ -1,0 +1,211 @@
+\documentclass[
+handout, 
+aspectratio=141, 
+10pt,
+xcolor=dvipsnames]
+{beamer}
+\usetheme{Rochester}
+\usecolortheme[named=PineGreen]{structure}
+
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{helvet}
+\usepackage{textcomp}
+\usepackage[final,babel]{microtype}
+
+\usepackage{etoolbox}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{tabulary}
+\usepackage{subcaption}
+\captionsetup[subfigure]{list=true, font=small, labelfont=bf, 
+	labelformat=brace, position=top}
+\usepackage{multirow}
+
+\usepackage{caption}
+\captionsetup[figure]{name=}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{wasysym}
+
+\usepackage[version-1-compatibility]{siunitx}
+\sisetup{detect-family, locale=DE}
+
+\title[Spiroergometrie \& Ventilatorische Schwellen]{Evaluierung von Methoden zur Bestimmung\\
+der ventilatorischen Schwellen in der\\
+Spiroergometrie}
+\date{Hamburg, \today}
+\author{Julian-Marvin Lütten}
+\institute{Fachhochschule Lübeck}
+\titlegraphic{\includegraphics[width=25mm]{fhl_logo.eps}}
+\logo{\includegraphics[width=20mm]{fhl_logo.eps}}
+
+\begin{document}
+
+\begin{frame}[plain]
+\maketitle
+\end{frame}	
+
+\begin{frame}{Inhalt}
+\tableofcontents
+\end{frame}
+
+\section{Einleitung}
+
+\begin{frame}{Einleitung}{Wissenschaftlicher Kontext}
+\begin{itemize}
+	\item cardioscan GmbH bietet Kunden Leistungsdiagnostik-Systeme zum Definieren von Trainingsbereichen 
+	\item Verfahren: nicht-invasive Spiroergometrie (aus lat. \textsl{spirare}: atmen, griech. \textsl{ergo}: Arbeit)
+	\item 14,4 \% Anstieg von Gesamtanzahl an Fitnessstudio-Mitgliedern zwischen 2014 und 2017 (44 \% aller Betreiber im Sektor Gesundheits und Prävention)
+	\item zukünftiges Setup: \textsl{cardioscan Checkpoint Software (CCPS)} + \textsl{metabolicscan} Spiroergometer + Fahrradergometer
+	\item aktueller Auswertungsalgorithmus: RQ = 1 $\rightarrow$ anfällig für Fehler
+	\item verbesserter Algorithmus für die CCPS notwendig
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Einleitung}{Physiologische Grundlagen: Atmung}
+\begin{itemize}
+	\item Trainingszonendefinition anhand zweier von Prof. Karlman Wasserman geprägter Schwellen
+	\item "`Schwellen"' basieren auf physiologischer Reaktion des Körpers auf erhöhte Belastung
+	\item Ausgangspunkt: Atmung bzw. Gastransfer
+	\item $RQ = \frac{\dot{V}CO_2}{\dot{V}O_2}$ als zentraler Parameter der Atemfunktion
+	\item RQ ist abhängig von Energiegewinnung und Stoffwechsellage\\Fettstoffwechsel in Ruhe: RQ = 0,7\\Kohlenhydratstoffwechsel bei Aktivität: RQ $\geq$ 1
+	\item RQ ist jedoch auch akut abhängig von Ernährung $\rightarrow$ problematisch
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Einleitung}{Physiologische Grundlagen: Energiebereitstellung des Körpers}
+\begin{itemize}
+	\item Bewegung des Körpers wird durch mechanische Kontraktionen der Skelettmuskulatur bedingt
+	\item aufgeteilt in primäre und sekundäre Energiegewinnung
+\end{itemize}
+\begin{columns}
+	\begin{column}{0.5\linewidth}
+		\begin{itemize}
+			\item Primär: hydrolytische ATP-Spaltung als Energiequelle
+			\item ATP-Muskelanteil reicht für ca. 1-2 \si{\second} körperliche Arbeit
+			\item ATP-Resynthese durch CrP: CrP-Muskelanteil reicht für ca. 5-6 \si{\second}
+			\item CrP-Konzentration für andauernde Belastung zu niedrig
+		\end{itemize}
+	\end{column}
+	\begin{column}{0.5\linewidth}
+		\begin{itemize}
+			\item Sekundär: aerobe und anaerob-laktazide Glykolyse
+			\item Glukose wird enzymatisch zu Pyruvat verarbeitet
+			\item genug O\textsubscript{2}: direkte ATP-Resynthese durch Citratzyklus
+			\item zunehmende Belastung $\rightarrow$ O\textsubscript{2} wird verbraucht: Reduktion des Pyruvats zu Milchsäure (HLa)
+		\end{itemize}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Einleitung}{Physiologische Grundlagen: Laktatproduktion}
+\begin{itemize}
+	\item $Glukose \rightarrow 2HLa \rightarrow 2H^+ + 2La^-$
+	\item steigende Belastung $\rightarrow$ andauernde La\textsuperscript{-}- und H\textsuperscript{+}-Produktion $\rightarrow$ metabolische Azidose
+	\item Kompensation der Azidose: Bicarbonat-Puffersystem
+	\item Bicarbonat (HCO\textsubscript{3}\textsuperscript{-}) bindet H\textsuperscript{+} zu instabiler Kohlensäure, die direkt zu CO\textsubscript{2} und H\textsubscript{2}O zerfällt
+	\item anfallendes CO\textsubscript{2} muss über die Lunge eliminiert werden $\rightarrow$ messbarer Anstieg von exspiriertem CO\textsubscript{2}
+	\item Grundlage für ventilatorisches Schwellenkonzept
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Einleitung}{Spiroergometrie: Ventilatorische Schwellen}
+\begin{itemize}
+	\item "`Schwellen"' = physiologisch bedingte Übergangsbereiche
+	\item Ur-Begriff: Aerobe und anaerobe Schwelle (nach K. Wasserman, 1973)
+	\item Heute: einheitliche Nomenklatur: 1. und 2. Ventilatorische Schwelle
+	\item angegeben entweder in Form der Leistung (W) in \si{\watt} oder Herzfrequenz (HF) in \si{\per\minute}
+	\item Pathophysiologische Indikatoren:
+\end{itemize}
+\begin{columns}
+	\begin{column}{5cm}
+		\begin{block}{VT1}
+			\begin{itemize}
+				\item Steigerung der Ventilation ($\dot{V}E$)
+				\item Zunahme der $\dot{V}CO_2$ gegenüber der $\dot{V}O_2$
+			\end{itemize}
+		\end{block}
+	\end{column}
+	\begin{column}{5cm}
+		\begin{block}{VT2}
+			\begin{itemize}
+				\item Laktatexzess
+				\item Metabolische Azidose
+				\item überproportionale Ventilationszunahme
+			\end{itemize}
+		\end{block}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Einleitung}{Spiroergometrie: 9-Felder-Grafik}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=7cm]{Bilder/9fieldcomplex.png}
+		\caption{Beispiel einer 9-Felder-Grafik nach einer Spiroergometrie mit einer jungen sportlichen Frau}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Einleitung}{Spiroergometrie: 9-Felder-Grafik}
+\begin{itemize}
+	\item grafisches Instrument der Spiroergometrie zum Vergleich vieler unterschiedlicher Messwerte
+	\item Nummerierung von oben links nach unten rechts von eins bis neun
+	\item kann je nach diagnostischem Schwerpunkt sehr komplex werden
+	\item in der Sportmedizin sind nur bestimmte Felder relevant: Fokus auf Feld 4, 5, 6 und 9 (Scharhag-Rosenberger, 2013)
+	\item Grafik muss auf Darstellung der ventilatorischen Schwellen reduziert werden
+	\item mehrere existente Methoden zur Schwellenbestimmung
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Einleitung}{Spiroergometrie: Methoden zur Schwellenbestimmung}
+\begin{itemize}
+	\item wissenschaftlich renommierteste Methoden wurden von AG Spiroergometrie zusammengefasst (Westhoff et al., 2012)
+	\item zwei Methoden für jede Schwelle werden untersucht
+\end{itemize}
+\begin{columns}
+	\begin{column}{5cm}
+		\begin{block}{VT1}
+			\begin{enumerate}
+				\item V-Slope: erster überproportionaler Anstieg der $\dot{V}CO_2$ gegenüber der $\dot{V}O_2$
+				\item alleiniger Anstieg des Sauerstoff-Äquivalents $EQO_2$
+			\end{enumerate}
+		\end{block}
+	\end{column}
+	\begin{column}{5cm}
+		\begin{block}{VT2}
+			\begin{enumerate}
+				\item überproportionaler Anstieg der $\dot{V}E$ gegenüber der $\dot{V}CO_2$
+				\item Anstieg des Kohlenstoffdioxid-Äquivalents $EQCO_2$
+			\end{enumerate}
+		\end{block}
+	\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Einleitung}{Spiroergometrie: Bestimmung der VT1}
+\begin{columns}
+	\begin{column}{5cm}
+		\begin{figure}[H]
+			\begin{center}
+			\includegraphics[width=40mm]{Bilder/vslope.png}
+			\caption{Schematische Darstellung der V-Slope-Methode}
+			\end{center}
+		\end{figure}
+	\end{column}
+	\begin{column}{5cm}
+		\begin{figure}[H]
+			\begin{center}
+			\includegraphics[width=40mm]{Bilder/eqo2.png}
+			\caption{Schematische Darstellung des EQO\textsubscript{2}}
+			\end{center}
+		\end{figure}
+	\end{column}
+\end{columns}
+\end{frame}
+	
+\end{document}

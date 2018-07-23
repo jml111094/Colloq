@@ -1,0 +1,64 @@
+\ProvidesPackageRCS $Header: /cvsroot/latex-beamer/latex-beamer/themes/inner/beamerinnerthemeFHL.sty,v 1.16 2004/10/28 16:42:54 tantau Exp $
+
+% Copyright 2003 by Till Tantau <tantau@users.sourceforge.net>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+\mode<presentation>
+
+% Captions
+\defbeamertemplate*{caption}{FHL}
+{%
+  \raggedright
+  \insertcaption\par
+}
+
+% Grundeinheiten
+\newlength{\unitwidth}
+\newlength{\unitsep}
+\setlength{\unitwidth}{0.64cm}
+\setlength{\unitsep}{.3333\unitwidth}
+
+% Ränder
+\beamersetleftmargin{\unitwidth}
+\beamersetrightmargin{\unitwidth}
+\newlength{\fhgleftcolumn}
+\setlength{\fhgleftcolumn}{.33\linewidth}
+\newlength{\fhgrightcolumn}
+\setlength{\fhgrightcolumn}{.66\linewidth}
+
+% Frametitledefinition
+\ifx\insertsection\tmp
+  %\vspace{1.5ex}
+  \useframetitletemplate{%
+  \large\structure{\textbf{\insertframetitle}}
+  \par
+  {\normalsize\structure{\textbf{\insertframesubtitle}}
+  \par}
+  }
+\else
+  \useframetitletemplate{%
+  	\vspace{1.5ex}
+	\hspace{-2ex}
+	\bf
+      	\setbeamerfont{section in head/foot}{size=\Large}
+      	{\usebeamerfont{section in head/foot}\usebeamercolor[black]{section in head/foot} \textcolor{white}{\arabic{section}.}\hspace{0.5em}\textcolor{fhlred}{\insertframetitle}}
+  \par
+  }
+\fi  
+
+% Neudefinition einer weiteren Frameumgebung, bei der der ganze Text um fhgleftcolumn eingerückt ist
+\newcommand{\framefhgright}[1]{\frame{\hspace{\fhgleftcolumn}\begin{minipage}{\fhgrightcolumn}#1\end{minipage}}}
+
+% Aufzählungs-Bobbel:
+\setbeamertemplate{itemize item}[ball]
+\setbeamertemplate{itemize subitem}[circle]
+%\setbeamertemplate{itemize item}{\includegraphics[width=.2cm]{iis_item}}
+%\setbeamertemplate{itemize subitem}{\includegraphics[width=.2cm]{iis_subitem}}
+%\myitem{1}{\includegraphics[width=.4cm]{red-bullet-on-white.pdf}}
+%\myitem{2}{\includegraphics[width=.3cm]{rule-glow.pdf}}
+
+
+\mode
+<all>
