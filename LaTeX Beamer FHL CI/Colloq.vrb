@@ -1,0 +1,29 @@
+\frametitle{VT2-Ergebnisse}
+\begin{columns}
+	\begin{column}{0.5\linewidth}
+		\begin{figure}
+			\begin{subfigure}{0.9\linewidth}
+				\centering
+				\includegraphics[width=0.6\linewidth]{Bilder/eqco2_net.eps}
+			\end{subfigure}
+			\begin{subfigure}{0.9\linewidth}
+				\centering
+				\includegraphics[width=0.82\linewidth]{Bilder/eqco2.eps}
+			\end{subfigure}	
+		\caption{\eqcotwo}	
+		\end{figure}
+	\end{column}
+	\begin{column}{0.5\linewidth}
+		\begin{figure}
+			\begin{subfigure}{0.9\linewidth}
+				\centering
+				\includegraphics[width=0.6\linewidth]{Bilder/vevco2_net.eps}
+			\end{subfigure}
+			\begin{subfigure}{0.9\linewidth}
+				\centering
+				\includegraphics[width=0.82\linewidth]{Bilder/vevco2.eps}
+			\end{subfigure}	
+		\caption{\ve/\vcotwo}
+		\end{figure}
+	\end{column}
+\end{columns}
