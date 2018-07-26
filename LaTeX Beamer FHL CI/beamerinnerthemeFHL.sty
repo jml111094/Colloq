@@ -52,8 +52,15 @@
 \newcommand{\framefhgright}[1]{\frame{\hspace{\fhgleftcolumn}\begin{minipage}{\fhgrightcolumn}#1\end{minipage}}}
 
 % Aufzählungs-Bobbel:
-\setbeamertemplate{itemize item}[ball]
+\setbeamertemplate{itemize item}[square]
 \setbeamertemplate{itemize subitem}[circle]
+\setbeamercolor{itemize item}{fg=fhlred}
+\setbeamercolor{itemize item dimmed}{fg=fhlred}
+\setbeamercolor{enumerate item}{fg=fhlred}
+\setbeamercolor{block title}{fg=black, bg=fhlred}
+\setbeamercolor{section in toc}{fg=fhlred}
+\setbeamercolor{caption name}{fg=fhlred}
+\setbeamercolor{bibliography entry author}{fg=black}
 %\setbeamertemplate{itemize item}{\includegraphics[width=.2cm]{iis_item}}
 %\setbeamertemplate{itemize subitem}{\includegraphics[width=.2cm]{iis_subitem}}
 %\myitem{1}{\includegraphics[width=.4cm]{red-bullet-on-white.pdf}}
