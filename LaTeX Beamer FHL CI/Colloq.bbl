@@ -19,6 +19,30 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{DSSV.2018}{misc}{}
+      \name{author}{1}{}{%
+        {{uniquename=0,uniquepart=base,hash=8ea2756677855cd71d58310d79e8b6bc}{%
+           family={DSSV},
+           familyi={D\bibinitperiod},
+           prefix={e.V.},
+           prefixi={e\bibinitperiod},
+           prefixun=0}}%
+      }
+      \strng{namehash}{8ea2756677855cd71d58310d79e8b6bc}
+      \strng{fullhash}{8ea2756677855cd71d58310d79e8b6bc}
+      \strng{bibnamehash}{8ea2756677855cd71d58310d79e8b6bc}
+      \strng{authorbibnamehash}{8ea2756677855cd71d58310d79e8b6bc}
+      \strng{authornamehash}{8ea2756677855cd71d58310d79e8b6bc}
+      \strng{authorfullhash}{8ea2756677855cd71d58310d79e8b6bc}
+      \field{sortinit}{D}
+      \field{sortinithash}{2ef1bd9a78cc71eb74d7231c635177b8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{2018 - Eckdaten der deutschen Fitness-Wirtschaft}
+      \field{year}{2018}
+    \endentry
     \entry{Kindermann.2004}{article}{}
       \name{author}{1}{}{%
         {{uniquename=0,uniquepart=base,hash=312d8354c3826e72bab1e70a7f3cfb18}{%
