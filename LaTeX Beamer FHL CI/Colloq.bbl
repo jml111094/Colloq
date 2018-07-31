@@ -111,6 +111,61 @@
       \field{volume}{9}
       \field{year}{2014}
     \endentry
+    \entry{Ruehle.2012}{misc}{}
+      \name{author}{5}{}{%
+        {{uniquename=0,uniquepart=base,hash=7d85efc751324eefbb60c00e45bb9145}{%
+           family={Rühle},
+           familyi={R\bibinitperiod},
+           given={K.\bibnamedelimi H.},
+           giveni={K\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=5ea44b09758d1eac5283403695133887}{%
+           family={Westhoff},
+           familyi={W\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=f17f9ca385921edb31335ed966f06e42}{%
+           family={Meyer},
+           familyi={M\bibinitperiod},
+           given={F.\bibnamedelimi J.},
+           giveni={F\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=b0218e333641bca85c4ce1c4bbcdf527}{%
+           family={Kroidl},
+           familyi={K\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{uniquename=0,uniquepart=base,hash=8c5bf69f5d17273190c332f50b432c4f}{%
+           family={Trötschler},
+           familyi={T\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{772787ad122e097a6d1173706b46066a}
+      \strng{fullhash}{f541adfba982f6695d3ba9631bac9358}
+      \strng{bibnamehash}{772787ad122e097a6d1173706b46066a}
+      \strng{authorbibnamehash}{772787ad122e097a6d1173706b46066a}
+      \strng{authornamehash}{772787ad122e097a6d1173706b46066a}
+      \strng{authorfullhash}{f541adfba982f6695d3ba9631bac9358}
+      \field{sortinit}{R}
+      \field{sortinithash}{da6b42bd3ab22fee61abed031ee405f7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{zuletzt abgerufen am 25.05.2018}
+      \field{title}{Plausibilitätsprüfungen in der Spiroergometrie}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb http://www.ag-spiroergometrie.de/uploads/media/Plausibilit%C3%A4tCPXKorrekturen.pdf
+      \endverb
+      \verb{url}
+      \verb http://www.ag-spiroergometrie.de/uploads/media/Plausibilit%C3%A4tCPXKorrekturen.pdf
+      \endverb
+    \endentry
     \entry{Westhoff.2012}{misc}{}
       \name{author}{7}{}{%
         {{uniquename=0,uniquepart=base,hash=5ea44b09758d1eac5283403695133887}{%

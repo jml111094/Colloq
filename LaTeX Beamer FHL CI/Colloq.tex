@@ -14,6 +14,7 @@
 \usepackage[german]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,bm}
+\usepackage{accents}
 \usepackage[]{easymovie}
 \usepackage{lmodern}
 \usepackage{helvet} 
@@ -121,11 +122,12 @@ hyperref
 
 \begin{frame}
 \begin{itemize}
-	\item 14,4 \% Anstieg der Mitgliederzahl in deutschen Fitnessstudios zwischen 2014 und 2017\\$\rightarrow$ steigende Ambitionen im Bereich Gesundheit und Prävention~(\cite{DSSV.2018})
-	\item cardioscan GmbH bietet Spiroergometrie-Systeme zum Definieren von individuellen Trainingsbereichen; bisher mit Dritthersteller-Geräten und eigener \textsl{cardioscan Checkpoint Software (CCPS)}
-	\item neues Spiroergometer \textsl{metabolicscan} soll künftig genutzt werden
+	\item 14,4 \% Anstieg der Mitgliederzahl in deutschen Fitnessstudios zwischen 2014 und 2017\\größter Sektor: Gesundheit \& Prävention~(\cite{DSSV.2018}) = Hauptabnehmer der cardioscan GmbH
+	\item cardioscan bietet u.a. Spiroergometrie an (bisher mit Dritthersteller-Geräten und eigener \textsl{cardioscan Checkpoint Software (CCPS)})
+	\item Zweck: Definition von individuellen Trainingsbereichen
+	\item neues Spiroergometer \textsl{metabolicscan} soll künftige Hardware darstellen
 	\item Stand der Forschung: Detektion von Stoffwechselübergängen durch Bestimmung der ventilatorischen Schwellen~(\cite{Westhoff.2012})
-	\item veralteter Auswertungsalgorithmus: VT2 = RQ = 1 $\rightarrow$ anfällig für Fehler
+	\item veralteter Software-Algorithmus: VT2 $\hat{=}$  RQ $=$ 1 ist akut beeinflussbar\\$\rightarrow$ anfällig für Fehler und wissenschaftlich umstritten
 \end{itemize}
 \end{frame}
 
@@ -137,7 +139,7 @@ hyperref
 
 \begin{frame}
 \begin{itemize}
-	\item Ventilatorische Schwellen basieren auf physiologischer/metabolischer Reaktion des Körpers auf erhöhte Belastung $\rightarrow$ erhöhter Energiebedarf
+	\item inkrementierte körperliche Arbeit $\rightarrow$ erhöhter Energiebedarf $\rightarrow$ metabolische Reaktion: Stoffwechselumstellungen: aerob $\rightarrow$ aerob-anaerob $\rightarrow$ anaerob
 	\item erhöhte Glykolyse-Rate $\rightarrow$ Laktatproduktion $\rightarrow$ metabolische Azidose $\rightarrow$ anfallendes CO\textsubscript{2} $\rightarrow$ messbare Zunahme der \vcotwo{} und \ve
 	\item Messung der Atemgase in festen Abständen $\rightarrow$ grafische Darstellung der Parameter
 	\item von AG Spiroergometrie werden einige Methoden empfohlen (\cite{Westhoff.2012})
@@ -200,11 +202,10 @@ hyperref
 
 \begin{frame}{Testprojekt}
 \begin{itemize}
-	\item spiroergometrische Testmessungen mit 28 internen und externen Probanden unter gleichen Bedingungen
-	\item alle Messungen im selben Raum; Temp. zwischen \SI{18}{\degreeCelsius} und \SI{22}{\degreeCelsius}
+	\item spiroergometrische Testmessungen mit 28 internen und externen Probanden unter gleichen Bedingungen (Temp. zwischen \SI{18}{\degreeCelsius} und \SI{22}{\degreeCelsius} etc.)
 	\item Personen zwischen 18 und 60 Jahren, Sportler und Nicht-Sportler, Raucher und Nichtraucher
-	\item Anamnesegespräch + Bestimmung der ungefähren Soll-Belastung und des individuellen Belastungsprotokolls
-	\item Leerlastphase $\rightarrow$ Ruhestoffwechselmessung $\rightarrow$ Belastungsphase (Beachtung von Abbruchkriterien nach literarischen Empfehlungen)
+	\item Anamnesegespräch + Ruhe-EKG + Bestimmung der ungefähren Soll-Belastung und des individuellen Belastungsprotokolls
+	\item Leerlastphase $\rightarrow$ Ruhestoffwechselmessung $\rightarrow$ Belastungsphase
 	\item Speichern der Rohdaten in CSV-Dateien
 	\item Weiterverarbeitung + Auswertung der Rohdaten durch MATLAB-Programm
 	\item Schwellenbestimmung: manuell durch zwei Rater + algorithmisch
@@ -328,41 +329,18 @@ hyperref
 % -----------------------------------------------------------
 \section{Diskussion}
 
-\begin{frame}{Kategorisierung der Plots}
-\begin{table}[H]
-	\begin{center}
-		\caption{Kategorisierung der Plots nach Qualität}
-		\medskip
-		\begin{tabulary}{\textwidth}{L L C C}
-			\toprule
-			& & Gut & Kritisch \\
-			\midrule
-			\midrule
-			\multirow{3}{1.5cm}{\textbf{VT1}} & V-Slope & 7 & 21 \\
-			& \eqotwo & 13 & 15 \\
-			\cmidrule{2-4}
-			& \textsl{Summe} & 20 (36 \%) & 36 (64 \%) \\
-			\midrule
-			\multirow{3}{1.5cm}{\textbf{VT2}} & \eqcotwo & 21 & 7 \\
-			& \ve/\vcotwo & 15 & 13 \\
-			\cmidrule{2-4}
-			& \textsl{Summe} & 36 (64 \%) & 20 (36 \%) \\
-			\bottomrule
-		\end{tabulary}
-	\end{center}
-\end{table}
-\end{frame}
-
 \begin{frame}{Evaluation der Tests}
 \begin{itemize}
-	\item für alle Testmessungen konnten charakteristische Graphen generiert werden
-	\item kritische Graphen sind nach Analyse auf Fehler im Algorithmus zurückzuführen
+	\item kritische Plots bzw. Schwankungen in den ersten Stufen $\rightarrow$ VT1-Bestimmung erschwert (siehe Differenzen der Ergebnisse)
+	\item Analyse der Felder 5 und 6: Plausibilitätsprüfung des Verlaufs der \.{V}E bzw. der \.{V}CO\textsubscript{2} zur W\\$\rightarrow$ Annahme: idealerweise lineare Zunahme~(\cite{Ruehle.2012})
+	\item Erkenntnis: Schwankungen zurückzuführen auf Fehler im Algorithmus bei Berechnung der Atemfrequenz
 	\item neue Messungen bzw. eine erneute Auswertung könnte veränderte Ergebnisse liefern
+	\item für alle Testmessungen konnten charakteristische Graphen generiert werden
 	\item alle erhobenen Messwerte lagen innerhalb der Genauigkeitsgrenzen der Sensoren
 \end{itemize}
 \begin{center}
 \vspace{3ex}
-$\rightarrow$ Der metabolicscan kann für die Spiroergometrie genutzt werden.
+$\rightarrow$ Hypothese: Der metabolicscan kann für die Spiroergometrie genutzt werden.
 \end{center}
 \end{frame}
 
@@ -387,24 +365,30 @@ $\rightarrow$ Der metabolicscan kann für die Spiroergometrie genutzt werden.
 
 \begin{frame}{Evaluation der Methoden}
 \begin{itemize}
-	\item V-Slope-Plots häufig nicht differenzierbar $\rightarrow$ fehlerhafter Algorithmus zur Bestimmung der Atemfrequenz (AF) $\rightarrow$ einige Differenzen: $r = 0,526$
+	\item V-Slope-Plots häufig nicht differenzierbar $\rightarrow$ fehlerhafter Algorithmus zur Bestimmung der Atemfrequenz (AF) $\rightarrow$ viele Differenzen: $r = 0,526$
 	\item Schwankungen der \eqotwo-Kurve bzw. kein eindeutiger Tiefpunkt $\rightarrow$ häufiger große Differenzen zwischen den Ergebnissen: $r = 0,464$
-	\item Mittelung der Messwerte über die Gesamtanzahl der Atemzüge pro Stufe wegen des Algorithmusfehlers problematisch $\rightarrow$ evtl. Alternative: gleitende Mittelung
 	\item mit einem Modell nach W. Kindermann ist die Trainingszonendefinition nur von VT2 abhängig (\cite{Kindermann.2004}) $\rightarrow$ VT1 zum Erreichen des Zieles nicht zwingend erforderlich
-	\item neuer Algorithmus hat RQ=1-Methode verbessert $\rightarrow$ dennoch 9 von 28 Tests mit dieser Methode nicht auswertbar; häufig hohe Differenzen zu anderen Methoden
-	\item Vergleich mit HUNT 3: 15 von 28 Ergebnissen sind vergleichbar (trotz unterschiedlicher Belastungsprotokolle)
+	\item 9 von 28 Tests mit RQ=1-Methode nicht auswertbar; bei auswertbaren Plots: häufig hohe Differenzen zu anderen Methoden
+	\item Vergleich mit HUNT 3: 15 von 28 Ergebnissen befinden sich innerhalb des altersspezifischen Durchschnitts (trotz unterschiedlicher Belastungsprotokolle)
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Fazit}
+\begin{frame}{Fazit \& Handlungsempfehlung}
 \begin{itemize}
 	\item mit \eqcotwo{} wurde eine genauere Methode zur VT2-Bestimmung erarbeitet
 	\item mit dieser Methode können realistische Trainingszonen nach dem Modell von Kindermann definiert werden
 	\item der Software-Algorithmus zur grafischen Verarbeitung sollte noch weiter optimiert werden
+	\item Mittelung der Messwerte über die Gesamtanzahl der Atemzüge pro Stufe wegen des Algorithmusfehlers problematisch $\rightarrow$ evtl. Alternative: gleitende Mittelung
 	\item Alternativen zum Mundstück könnten Atmung des Probanden optimieren/erleichtern\\$\rightarrow$ evtl. Reduktion von Messfehlern
 	\item einige Einflussfaktoren sind bei der Durchführung zu beachten: probandenbedingt, anwenderbedingt, umweltbedingt\\$\rightarrow$ Produkt- und Konzept-Schulungen durch cardioscan Academy sind wichtig
 	\item \eqcotwo-Algorithmus wird in die CCPS implementiert
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{center}
+	\large{\textbf{Vielen Dank für Ihre Aufmerksamkeit!}}
+\end{center}
 \end{frame}
 
 % -----------------------------------------------------------
