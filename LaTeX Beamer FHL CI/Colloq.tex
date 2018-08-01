@@ -122,12 +122,14 @@ hyperref
 
 \begin{frame}
 \begin{itemize}
-	\item Anstieg der Mitgliederzahl in deutschen Fitnessstudios zwischen 2014 und 2017 um 14,4 \%\\größter Sektor: Gesundheit \& Prävention~(\cite{DSSV.2018}) = Hauptabnehmer der cardioscan GmbH
+	\item Anstieg der Mitgliederzahl in deutschen Fitnessstudios zwischen 2014 und 2017 um 14,4 \%
+	\item größter Sektor: Gesundheit \& Prävention~(\cite{DSSV.2018}) = Hauptabnehmer der cardioscan GmbH
 	\item cardioscan bietet u.a. Spiroergometrie an (bisher mit Dritthersteller-Geräten und eigener \textsl{cardioscan Checkpoint Software (CCPS)})
 	\item Zweck: Definition von individuellen Trainingsbereichen
 	\item neues Spiroergometer \textsl{metabolicscan} soll künftige Hardware darstellen
 	\item Stand der Forschung: Detektion von Stoffwechselübergängen durch Bestimmung der ventilatorischen Schwellen~(\cite{Westhoff.2012})
-	\item veralteter Software-Algorithmus: VT2 $\hat{=}$  RQ $=$ 1 ist akut beeinflussbar\\$\rightarrow$ anfällig für Fehler und wissenschaftlich umstritten
+	\item veralteter CCPS-Spiroergometrie-Algorithmus: VT2 $\hat{=}$  RQ $=$ 1\\$\rightarrow$ akut beeinflussbar $\rightarrow$ anfällig für Fehler und wissenschaftlich umstritten
+	\item Vielzahl an möglichen Alternativen $\rightarrow$ Welche ist am besten geeignet?
 \end{itemize}
 \end{frame}
 
@@ -139,9 +141,10 @@ hyperref
 
 \begin{frame}
 \begin{itemize}
-	\item inkrementierte körperliche Arbeit $\rightarrow$ erhöhter Energiebedarf $\rightarrow$ metabolische Reaktion: Stoffwechselumstellungen: aerob $\rightarrow$ aerob-anaerob $\rightarrow$ anaerob
+	\item "`Spiroergometrie"': lat. \textsl{spirare}: atmen, griech. \textsl{ergo}: Arbeit und \textsl{metrein}: messen
+	\item zunehmende körperliche Arbeit $\rightarrow$ erhöhter Energiebedarf $\rightarrow$ metabolische Reaktion: Stoffwechselumstellungen: aerob $\rightarrow$ aerob-anaerob $\rightarrow$ anaerob
 	\item erhöhte Glykolyse-Rate $\rightarrow$ Laktatproduktion $\rightarrow$ metabolische Azidose $\rightarrow$ anfallendes CO\textsubscript{2} $\rightarrow$ messbare Zunahme der \vcotwo{} und \ve
-	\item Messung der Atemgase in festen Abständen $\rightarrow$ grafische Darstellung der Parameter
+	\item Prinzip: Messung der Atemgase in festen Abständen $\rightarrow$ grafische Darstellung der Parameter
 	\item von AG Spiroergometrie werden einige Methoden empfohlen (\cite{Westhoff.2012})
 	\item Bestimmung der ventilatorischen Schwellen mit jeweils zwei ausgewählten Methoden (VT1: V-Slope, \eqotwo; VT2: \eqcotwo, \ve/\vcotwo)
 \end{itemize}
@@ -198,17 +201,18 @@ hyperref
 % -----------------------------------------------------------
 % Kapitel 3: Methoden
 % -----------------------------------------------------------
-\section{Methoden}
+\section{Methode}
 
-\begin{frame}{Testprojekt}
+\begin{frame}{Versuchsreihe}
 \begin{itemize}
-	\item spiroergometrische Testmessungen mit 28 internen und externen Probanden unter gleichen Bedingungen (Temp. zwischen \SI{18}{\degreeCelsius} und \SI{22}{\degreeCelsius} etc.)
-	\item Personen zwischen 18 und 60 Jahren, Sportler und Nicht-Sportler, Raucher und Nichtraucher
+	\item spiroergometrische Testmessungen mit 28 internen und externen Probanden unter gleichen Bedingungen (räumliche Gegebenheiten, Ernährungszustand etc.)
+	\item Varianz der Probanden: m/w, 19 bis 58 Jahre, Sportler und Nicht-Sportler, Raucher und Nichtraucher
 	\item Anamnesegespräch + Ruhe-EKG + Bestimmung der ungefähren Soll-Belastung und des individuellen Belastungsprotokolls
 	\item Leerlastphase $\rightarrow$ Ruhestoffwechselmessung $\rightarrow$ Belastungsphase
 	\item Speichern der Rohdaten in CSV-Dateien
-	\item Weiterverarbeitung + Auswertung der Rohdaten durch MATLAB-Programm
+	\item Weiterverarbeitung + Auswertung durch ein MATLAB-Programm
 	\item Schwellenbestimmung: manuell durch zwei Rater + algorithmisch
+	\item statistische und methodenkritische Analyse der Ergebnisse
 	\item Vergleich mit Referenzstudie HUNT 3 (\cite{Loe.2014})
 \end{itemize}
 \end{frame}
@@ -221,8 +225,8 @@ hyperref
 	\item Atemmodul: Messung der Strömungsgeschwindigkeit der Inspirations- und Exspirationsluft
 	\item Berechnung des Strömungsvolumens durch mathematische Integration über die Zeit
 	\item Pumpe saugt Luftanteil durch Probenschlauch zum Analysemodul
-	\item CO\textsubscript{2}-Messung durch Infratotlichtabsorption
-	\item Weiterleitung zum galvanischen O\textsubscript{2}-Sensor
+	\item Analysemodul: CO\textsubscript{2}-Messung durch Infratotlichtabsorption
+	\item Weiterleitung zum galvanischen O\textsubscript{2}-Sensor $\rightarrow$ O\textsubscript{2}-Konzentration ist proportional zu fließendem Strom
 \end{itemize}
 \end{column}
 \begin{column}{0.5\linewidth}

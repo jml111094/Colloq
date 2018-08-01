@@ -3,7 +3,7 @@
 \beamer@sectionintoc {1}{Relevanz des Themas}{3}{0}{1}
 \beamer@sectionintoc {2}{Ventilatorisches Schwellenkonzept}{5}{0}{2}
 \beamer@sectionintoc {3}{Herausforderungen und Aufgabenstellung}{7}{0}{3}
-\beamer@sectionintoc {4}{Methoden}{9}{0}{4}
+\beamer@sectionintoc {4}{Methode}{9}{0}{4}
 \beamer@sectionintoc {5}{Resultate}{12}{0}{5}
 \beamer@sectionintoc {6}{Diskussion}{16}{0}{6}
 \beamer@sectionintoc {7}{Literatur}{22}{0}{7}
