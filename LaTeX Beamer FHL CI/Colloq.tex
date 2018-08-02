@@ -11,7 +11,7 @@
   \setbeamerfont{caption}{size=\tiny}
 }
 
-\usepackage[german]{babel}
+\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,bm}
 \usepackage{accents}
@@ -73,7 +73,7 @@ bibencoding=UTF8,
 maxnames=3,
 hyperref
 ]{biblatex}
-
+\renewcommand*{\bibfont}{\scriptsize}
 \DefineBibliographyStrings{ngerman}{andothers={et\ al\adddot}}
 \addbibresource{Referenzen.bib}
 
@@ -115,35 +115,35 @@ hyperref
 \end{frame}
 
 % -----------------------------------------------------------
-% Kapitel 1: Relevanz des Themas
+% Kapitel 1: Relevanz der Arbeit
 % -----------------------------------------------------------
 
-\section{Relevanz des Themas}
+\section{Relevanz der Arbeit}
 
 \begin{frame}
 \begin{itemize}
-	\item Anstieg der Mitgliederzahl in deutschen Fitnessstudios zwischen 2014 und 2017 um 14,4 \%
+	\item Anstieg der Mitgliederzahl in dt. Fitnessstudios zwischen 2014 und 2017 um 14,4 \%
 	\item größter Sektor: Gesundheit \& Prävention~(\cite{DSSV.2018}) = Hauptabnehmer der cardioscan GmbH
 	\item cardioscan bietet u.a. Spiroergometrie an (bisher mit Dritthersteller-Geräten und eigener \textsl{cardioscan Checkpoint Software (CCPS)})
 	\item Zweck: Definition von individuellen Trainingsbereichen
 	\item neues Spiroergometer \textsl{metabolicscan} soll künftige Hardware darstellen
-	\item Stand der Forschung: Detektion von Stoffwechselübergängen durch Bestimmung der ventilatorischen Schwellen~(\cite{Westhoff.2012})
-	\item veralteter CCPS-Spiroergometrie-Algorithmus: VT2 $\hat{=}$  RQ $=$ 1\\$\rightarrow$ akut beeinflussbar $\rightarrow$ anfällig für Fehler und wissenschaftlich umstritten
+	\item Forschungsstand: Detektion von Stoffwechselübergängen durch Bestimmung der ventilatorischen Schwellen~(\cite{Westhoff.2012})
+	\item vorheriger CCPS-Spiroergometrie-Algorithmus: HF (VT2) $\hat{=}$  HF (RQ $=$ 1)\\$\rightarrow$ akut beeinflussbar $\rightarrow$ anfällig für Fehler und wissenschaftlich umstritten
 	\item Vielzahl an möglichen Alternativen $\rightarrow$ Welche ist am besten geeignet?
 \end{itemize}
 \end{frame}
 
 % -----------------------------------------------------------
-% Kapitel 2: Ventilatorisches Schwellenkonzept
+% Kapitel 2: Das ventilatorische Schwellenkonzept
 % -----------------------------------------------------------
 
-\section{Ventilatorisches Schwellenkonzept}
+\section{Das ventilatorische Schwellenkonzept}
 
 \begin{frame}
 \begin{itemize}
-	\item "`Spiroergometrie"': lat. \textsl{spirare}: atmen, griech. \textsl{ergo}: Arbeit und \textsl{metrein}: messen
-	\item zunehmende körperliche Arbeit $\rightarrow$ erhöhter Energiebedarf $\rightarrow$ metabolische Reaktion: Stoffwechselumstellungen: aerob $\rightarrow$ aerob-anaerob $\rightarrow$ anaerob
-	\item erhöhte Glykolyse-Rate $\rightarrow$ Laktatproduktion $\rightarrow$ metabolische Azidose $\rightarrow$ anfallendes CO\textsubscript{2} $\rightarrow$ messbare Zunahme der \vcotwo{} und \ve
+	\item "`Spiroergometrie"': lat. \textsl{spirare}: atmen, griech. \textsl{ergo}: Arbeit und \textsl{metria}: messen
+	\item zunehmende körperliche Arbeit $\rightarrow$ steigender Energiebedarf $\rightarrow$ metabolische Reaktion: Stoffwechselumstellungen: aerob $\rightarrow$ aerob-anaerob $\rightarrow$ anaerob
+	\item erhöhte Glykolyse-Rate $\rightarrow$ erschöpfte O\textsubscript{2}-Aufnahmefähigkeit $\rightarrow$ Milchsäurezyklus $\rightarrow$ Laktatproduktion $\rightarrow$ Pufferreaktionen $\rightarrow$ zusätzlich anfallendes CO\textsubscript{2} $\rightarrow$ messbare Zunahme der \vcotwo{} und \ve
 	\item Prinzip: Messung der Atemgase in festen Abständen $\rightarrow$ grafische Darstellung der Parameter
 	\item von AG Spiroergometrie werden einige Methoden empfohlen (\cite{Westhoff.2012})
 	\item Bestimmung der ventilatorischen Schwellen mit jeweils zwei ausgewählten Methoden (VT1: V-Slope, \eqotwo; VT2: \eqcotwo, \ve/\vcotwo)
@@ -177,10 +177,10 @@ hyperref
 \end{frame}
 
 % -----------------------------------------------------------
-% Kapitel 3: Herausforderung und Aufgabenstellung
+% Kapitel 3: Herausforderung & Aufgabenstellung
 % -----------------------------------------------------------
 
-\section{Herausforderungen und Aufgabenstellung}
+\section{Herausforderungen \& Aufgabenstellung}
 
 \begin{frame}
 \begin{block}{Unternehmensziele}
@@ -206,14 +206,15 @@ hyperref
 \begin{frame}{Versuchsreihe}
 \begin{itemize}
 	\item spiroergometrische Testmessungen mit 28 internen und externen Probanden unter gleichen Bedingungen (räumliche Gegebenheiten, Ernährungszustand etc.)
-	\item Varianz der Probanden: m/w, 19 bis 58 Jahre, Sportler und Nicht-Sportler, Raucher und Nichtraucher
+	\item Laptop mit CCPS und seriell angebundenem Fahrradergometer
+	\item Probanden: m/w, 19 bis 58 Jahre, Sportler und Nicht-Sportler, Raucher und Nichtraucher
 	\item Anamnesegespräch + Ruhe-EKG + Bestimmung der ungefähren Soll-Belastung und des individuellen Belastungsprotokolls
-	\item Leerlastphase $\rightarrow$ Ruhestoffwechselmessung $\rightarrow$ Belastungsphase
-	\item Speichern der Rohdaten in CSV-Dateien
+	\item Leerlastphase (\SI{2}{\minute}) $\rightarrow$ Ruhestoffwechselmessung $\rightarrow$ Belastungsphase bis zum Maximum
+	\item Belastungsphase: \SI{2}{\minute} (\SI{90}{\second} frei, \SI{30}{\second} messen) $\rightarrow$ Inkrement: \SI{25}{\watt} nach WHO-Schema~(\cite{Trappe.2000})
+	\item Speichern der Sensor-Rohdaten in Textdateien
 	\item Weiterverarbeitung + Auswertung durch ein MATLAB-Programm
 	\item Schwellenbestimmung: manuell durch zwei Rater + algorithmisch
 	\item statistische und methodenkritische Analyse der Ergebnisse
-	\item Vergleich mit Referenzstudie HUNT 3 (\cite{Loe.2014})
 \end{itemize}
 \end{frame}
 
@@ -227,6 +228,7 @@ hyperref
 	\item Pumpe saugt Luftanteil durch Probenschlauch zum Analysemodul
 	\item Analysemodul: CO\textsubscript{2}-Messung durch Infratotlichtabsorption
 	\item Weiterleitung zum galvanischen O\textsubscript{2}-Sensor $\rightarrow$ O\textsubscript{2}-Konzentration ist proportional zu fließendem Strom
+	\item Kommunikation mit CCPS via USB
 \end{itemize}
 \end{column}
 \begin{column}{0.5\linewidth}
@@ -245,25 +247,41 @@ hyperref
 \section{Resultate}
 
 \begin{frame}{"`6-Felder-Grafiken"'}
-\begin{columns}
-	\begin{column}{0.5\linewidth}
-		\begin{itemize}
-			\item Keine Störungen oder Fehler während der Messungen
-			\item "`6-Felder-Grafiken"' für jeden Probanden generiert: eine für manuelle Bestimmung, eine mit algorithmischen Schwellenbestimmungen
-			\item teilweise nicht-differenzierbare Plots; vorwiegend bei den VT1-Methoden
-			\item Differenzen zwischen den einzelnen Ergebnissen der Rater und Software\\$\rightarrow$ statistische Auswertung
-		\end{itemize}
-	\end{column}
-	\begin{column}{0.5\linewidth}
-		\begin{figure}[H]
+	\begin{itemize}
+		\item Keine Störungen oder Fehler während der Messungen
+		\item zwei "`6-Felder-Grafiken"' für jeden Probanden generiert: eine für manuelle Bestimmung, eine mit algorithmischen Schwellenbestimmungen
+		\item vorwiegend bei den VT1-Methoden teilweise nicht-differenzierbare Plots
+		\item Differenzen zwischen den einzelnen Ergebnissen der Rater und Software\\$\rightarrow$ statistische Auswertung
+	\end{itemize}
+	\begin{figure}[H]
+		\begin{subfigure}[c]{0.45\linewidth}
 			\centering
-			\includegraphics[width=0.8\linewidth]{Bilder/plot_6w.jpg}
-			\caption{Manuell}
-			\includegraphics[width=0.8\linewidth]{Bilder/auto_6.png}
-			\caption{Algorithmisch}
-		\end{figure}
-	\end{column}
-\end{columns}
+			\includegraphics[width=\linewidth]{Bilder/plot_6w.jpg}
+			\subcaption{Blankoplot}
+		\end{subfigure}
+		\hfil
+		\begin{subfigure}[c]{0.45\linewidth}
+			\centering
+			\includegraphics[width=\linewidth]{Bilder/auto_6.png}
+			\subcaption{Plot mit algorithmisch bestimmten Schwellen}
+		\end{subfigure}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Beispielplot 1}
+	\begin{figure}[H]
+		\centering
+			\includegraphics[width=0.85\linewidth]{Bilder/auto_6.png}
+			\caption{Beispielplot der Probandin 6w}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Beispielplot 2}
+	\begin{figure}[H]
+		\centering
+			\includegraphics[width=0.85\linewidth]{Bilder/auto_21.png}
+			\caption{Beispielplot des Probanden 21m}
+	\end{figure}
 \end{frame}
 
 \begin{frame}[fragile]{VT1-Ergebnisse}
@@ -336,7 +354,7 @@ hyperref
 \begin{frame}{Evaluation der Tests}
 \begin{itemize}
 	\item kritische Plots bzw. Schwankungen in den ersten Stufen $\rightarrow$ VT1-Bestimmung erschwert (siehe Differenzen der Ergebnisse)
-	\item Analyse der Felder 5 und 6: Plausibilitätsprüfung des Verlaufs der \.{V}E bzw. der \.{V}CO\textsubscript{2} zur W\\$\rightarrow$ Annahme: idealerweise lineare Zunahme~(\cite{Ruehle.2012})
+	\item Analyse der Felder 5 und 6: Plausibilitätsprüfung des Verlaufs der \ve{} bzw. der \vcotwo{} zur W\\$\rightarrow$ Annahme: idealerweise lineare Zunahme~(\cite{Ruehle.2012})
 	\item Erkenntnis: Schwankungen zurückzuführen auf Fehler im Algorithmus bei Berechnung der Atemfrequenz
 	\item neue Messungen bzw. eine erneute Auswertung könnte veränderte Ergebnisse liefern
 	\item für alle Testmessungen konnten charakteristische Graphen generiert werden
@@ -372,12 +390,12 @@ $\rightarrow$ Hypothese: Der metabolicscan kann für die Spiroergometrie genutzt
 	\item V-Slope-Plots häufig nicht differenzierbar $\rightarrow$ fehlerhafter Algorithmus zur Bestimmung der Atemfrequenz (AF) $\rightarrow$ viele Differenzen: $r = 0,526$
 	\item Schwankungen der \eqotwo-Kurve bzw. kein eindeutiger Tiefpunkt $\rightarrow$ häufiger große Differenzen zwischen den Ergebnissen: $r = 0,464$
 	\item mit einem Modell nach W. Kindermann ist die Trainingszonendefinition nur von VT2 abhängig (\cite{Kindermann.2004}) $\rightarrow$ VT1 zum Erreichen des Zieles nicht zwingend erforderlich
-	\item 9 von 28 Tests mit RQ=1-Methode nicht auswertbar; bei auswertbaren Plots: häufig hohe Differenzen zu anderen Methoden
-	\item Vergleich mit HUNT 3: 15 von 28 Ergebnissen befinden sich innerhalb des altersspezifischen Durchschnitts (trotz unterschiedlicher Belastungsprotokolle)
+	\item mit RQ=1-Methode 9 von 28 Tests nicht auswertbar; bei auswertbaren Plots: häufig hohe Differenzen zu anderen Methoden
+	\item Vergleich mit HUNT 3: 15 von 28 Ergebnissen befinden sich innerhalb des geschlechts- und altersspezifischen Durchschnitts (trotz unterschiedlicher Belastungsprotokolle)\\$\rightarrow$ 12 Ergebnisse eine Stufe niedriger (plausibel, da muskulärer Wirkungsgrad auf Laufband höher ist und Schwelle später erreicht wird~(\cite{Kroidl.2015}))
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Fazit \& Handlungsempfehlung}
+\begin{frame}{Fazit \& Ausblick}
 \begin{itemize}
 	\item mit \eqcotwo{} wurde eine genauere Methode zur VT2-Bestimmung erarbeitet
 	\item mit dieser Methode können realistische Trainingszonen nach dem Modell von Kindermann definiert werden
