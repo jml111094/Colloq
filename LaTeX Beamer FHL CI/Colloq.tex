@@ -34,8 +34,8 @@
 \captionsetup[table]{name=}
 
 \usepackage{subcaption}
-\captionsetup[subfigure]{list=true, font=small, labelfont=bf, 
-	labelformat=brace, position=bottom}
+\captionsetup[subfigure]{list=true, font=tiny, labelfont=bf, 
+	labelformat=brace, position=bottom, singlelinecheck=off, justification=raggedright}
 
 %
 % Dick der Folientitel 1. Folie
@@ -103,7 +103,7 @@ hyperref
     \normalsize Kolloquium zur Bachelorthesis\\
     \textcolor{fhlred}{\HRuleFill[0.1ex]} \\ \vspace{4ex}
     \small Julian-Marvin Lütten\\
-    \small Fachschule Lübeck, B.Sc. Biomedizintechnik\\
+    \small Fachhochschule Lübeck, B.Sc. Biomedizintechnik\\
     \vspace{2ex}
     \small angefertigt bei der\\
     \small cardioscan GmbH\\
@@ -120,15 +120,20 @@ hyperref
 
 \section{Relevanz der Arbeit}
 
-\begin{frame}
+\begin{frame}{Trend der Fitness-Wirtschaft}
+\begin{figure}[H]
+	\includegraphics[width=5cm]{Bilder/Mitgliederentwicklung.png}
+	\caption{Mitgliederentwicklung in dt. Fitnessstudios~(\cite{DSSV.2018})}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Spiroergometrie bei cardioscan}
 \begin{itemize}
-	\item Anstieg der Mitgliederzahl in dt. Fitnessstudios zwischen 2014 und 2017 um 14,4 \%
-	\item größter Sektor: Gesundheit \& Prävention~(\cite{DSSV.2018}) = Hauptabnehmer der cardioscan GmbH
-	\item cardioscan bietet u.a. Spiroergometrie an (bisher mit Dritthersteller-Geräten und eigener \textsl{cardioscan Checkpoint Software (CCPS)})
+	\item cardioscan GmbH bietet u.a. Spiroergometrie-Systeme an
 	\item Zweck: Definition von individuellen Trainingsbereichen
-	\item neues Spiroergometer \textsl{metabolicscan} soll künftige Hardware darstellen
+	\item Neues Spiroergometer \textsl{metabolicscan} soll künftige Hardware darstellen
 	\item Forschungsstand: Detektion von Stoffwechselübergängen durch Bestimmung der ventilatorischen Schwellen~(\cite{Westhoff.2012})
-	\item vorheriger CCPS-Spiroergometrie-Algorithmus: HF (VT2) $\hat{=}$  HF (RQ $=$ 1)\\$\rightarrow$ akut beeinflussbar $\rightarrow$ anfällig für Fehler und wissenschaftlich umstritten
+	\item Vorheriger Software-Algorithmus: HF (VT2) $\hat{=}$  HF (RQ $=$ 1)\\$\rightarrow$ akut beeinflussbar $\rightarrow$ anfällig für Fehler und wissenschaftlich umstritten
 	\item Vielzahl an möglichen Alternativen $\rightarrow$ Welche ist am besten geeignet?
 \end{itemize}
 \end{frame}
@@ -141,35 +146,36 @@ hyperref
 
 \begin{frame}
 \begin{itemize}
-	\item "`Spiroergometrie"': lat. \textsl{spirare}: atmen, griech. \textsl{ergo}: Arbeit und \textsl{metria}: messen
-	\item zunehmende körperliche Arbeit $\rightarrow$ steigender Energiebedarf $\rightarrow$ metabolische Reaktion: Stoffwechselumstellungen: aerob $\rightarrow$ aerob-anaerob $\rightarrow$ anaerob
-	\item erhöhte Glykolyse-Rate $\rightarrow$ erschöpfte O\textsubscript{2}-Aufnahmefähigkeit $\rightarrow$ Milchsäurezyklus $\rightarrow$ Laktatproduktion $\rightarrow$ Pufferreaktionen $\rightarrow$ zusätzlich anfallendes CO\textsubscript{2} $\rightarrow$ messbare Zunahme der \vcotwo{} und \ve
-	\item Prinzip: Messung der Atemgase in festen Abständen $\rightarrow$ grafische Darstellung der Parameter
-	\item von AG Spiroergometrie werden einige Methoden empfohlen (\cite{Westhoff.2012})
-	\item Bestimmung der ventilatorischen Schwellen mit jeweils zwei ausgewählten Methoden (VT1: V-Slope, \eqotwo; VT2: \eqcotwo, \ve/\vcotwo)
+	\item Zunehmende körperliche Arbeit $\rightarrow$ steigender Energiebedarf $\rightarrow$ metabolische Reaktion: Stoffwechselumstellungen: aerob $\rightarrow$ aerob-anaerob $\rightarrow$ anaerob
+	\item Erhöhte Glykolyse-Rate $\rightarrow$ Laktatproduktion $\rightarrow$ zusätzlich anfallendes CO\textsubscript{2} $\rightarrow$ messbare Zunahme der \vcotwo{} und \ve
+	\item Prinzip: Respirationsmessung in festen Abständen $\rightarrow$ grafische Darstellung
+	\item Bestimmung der ventilatorischen Schwellen mit jeweils zwei ausgewählten Methoden je Schwelle (\cite{Westhoff.2012})
 \end{itemize}
 \begin{columns}
 \begin{column}{\linewidth}
 \begin{figure}[H]
-	\begin{subfigure}[c]{0.2\linewidth}
+	\begin{subfigure}[t]{0.2\linewidth}
 		\centering
-		\includegraphics[width=0.8\linewidth]{Bilder/vslope.png}
-		\subcaption{V-Slope}
+		\includegraphics[width=\linewidth]{Bilder/vslope.png}
+		\subcaption{V-Slope:\\überproportionaler Anstieg der \vcotwo}
 	\end{subfigure}
-	\begin{subfigure}[c]{0.2\linewidth}
+	\hfil
+	\begin{subfigure}[t]{0.2\linewidth}
 		\centering
-		\includegraphics[width=0.8\linewidth]{Bilder/eqo2.png}
-		\subcaption{\eqotwo}
+		\includegraphics[width=\linewidth]{Bilder/eqo2.png}
+		\subcaption{\eqotwo:\\Punkt der max. Wirkungsgrades}
 	\end{subfigure}
-	\begin{subfigure}[c]{0.2\linewidth}
+	\hfil
+	\begin{subfigure}[t]{0.2\linewidth}
 		\centering
-		\includegraphics[width=0.8\linewidth]{Bilder/eqco2.png}
-		\subcaption{\eqcotwo}
+		\includegraphics[width=\linewidth]{Bilder/eqco2.png}
+		\subcaption{\eqcotwo:\\Anstieg als Folge der Hyperventilation}
 	\end{subfigure}
-	\begin{subfigure}[c]{0.2\linewidth}
+	\hfil
+	\begin{subfigure}[t]{0.2\linewidth}
 		\centering
-		\includegraphics[width=0.8\linewidth]{Bilder/field4.png}
-		\subcaption{\ve/\vcotwo}
+		\includegraphics[width=\linewidth]{Bilder/field4.png}
+		\subcaption{\ve/\vcotwo:\\überproportionaler Anstieg der \ve{} als Folge der Hyperventilation}
 	\end{subfigure}
 \end{figure}
 \end{column}
@@ -185,8 +191,8 @@ hyperref
 \begin{frame}
 \begin{block}{Unternehmensziele}
 	\begin{itemize}
-		\item optimale Methode zur Schwellenbestimmung für optimierten Algorithmus erarbeiten
-		\item neue Basis für eine zuverlässigere Definition der Trainingsbereiche erstellen
+		\item Optimale Methode zur Schwellenbestimmung für optimierten Algorithmus mit Fahrradergometrie erarbeiten
+		\item Neue Basis für eine zuverlässigere Definition der Trainingsbereiche erstellen
 	\end{itemize}
 \end{block}
 \begin{block}{Forschungsfragen}
@@ -205,16 +211,15 @@ hyperref
 
 \begin{frame}{Versuchsreihe}
 \begin{itemize}
-	\item spiroergometrische Testmessungen mit 28 internen und externen Probanden unter gleichen Bedingungen (räumliche Gegebenheiten, Ernährungszustand etc.)
-	\item Laptop mit CCPS und seriell angebundenem Fahrradergometer
+	\item Testmessungen mit 28 internen und externen Probanden unter gleichen Bedingungen (räumliche Gegebenheiten, Ernährungszustand etc.)
 	\item Probanden: m/w, 19 bis 58 Jahre, Sportler und Nicht-Sportler, Raucher und Nichtraucher
-	\item Anamnesegespräch + Ruhe-EKG + Bestimmung der ungefähren Soll-Belastung und des individuellen Belastungsprotokolls
-	\item Leerlastphase (\SI{2}{\minute}) $\rightarrow$ Ruhestoffwechselmessung $\rightarrow$ Belastungsphase bis zum Maximum
+	\item Anamnesegespräch + Ruhe-EKG + Bestimmung der ungefähren Soll-Belastung und des individuellen Belastungsprotokolls mit Rücksicht auf Trainingszustand
+	\item Leerlastphase (\SI{2}{\minute}) $\rightarrow$ Ruhestoffwechselmessung $\rightarrow$ Belastungsphase
 	\item Belastungsphase: \SI{2}{\minute} (\SI{90}{\second} frei, \SI{30}{\second} messen) $\rightarrow$ Inkrement: \SI{25}{\watt} nach WHO-Schema~(\cite{Trappe.2000})
 	\item Speichern der Sensor-Rohdaten in Textdateien
 	\item Weiterverarbeitung + Auswertung durch ein MATLAB-Programm
 	\item Schwellenbestimmung: manuell durch zwei Rater + algorithmisch
-	\item statistische und methodenkritische Analyse der Ergebnisse
+	\item Statistische und methodenkritische Analyse der Ergebnisse
 \end{itemize}
 \end{frame}
 
@@ -226,9 +231,8 @@ hyperref
 	\item Atemmodul: Messung der Strömungsgeschwindigkeit der Inspirations- und Exspirationsluft
 	\item Berechnung des Strömungsvolumens durch mathematische Integration über die Zeit
 	\item Pumpe saugt Luftanteil durch Probenschlauch zum Analysemodul
-	\item Analysemodul: CO\textsubscript{2}-Messung durch Infratotlichtabsorption
+	\item Analysemodul: CO\textsubscript{2}-Messung durch Infrarotlichtabsorption
 	\item Weiterleitung zum galvanischen O\textsubscript{2}-Sensor $\rightarrow$ O\textsubscript{2}-Konzentration ist proportional zu fließendem Strom
-	\item Kommunikation mit CCPS via USB
 \end{itemize}
 \end{column}
 \begin{column}{0.5\linewidth}
@@ -248,9 +252,9 @@ hyperref
 
 \begin{frame}{"`6-Felder-Grafiken"'}
 	\begin{itemize}
-		\item Keine Störungen oder Fehler während der Messungen
-		\item zwei "`6-Felder-Grafiken"' für jeden Probanden generiert: eine für manuelle Bestimmung, eine mit algorithmischen Schwellenbestimmungen
-		\item vorwiegend bei den VT1-Methoden teilweise nicht-differenzierbare Plots
+		\item Keine Sensor-Störungen oder Gerätefehler während der Messungen
+		\item Zwei "`6-Felder-Grafiken"' für jeden Probanden generiert: eine für manuelle Bestimmung, eine mit algorithmischen Schwellenbestimmungen
+		\item Vorwiegend bei den VT1-Methoden teilweise nicht-differenzierbare Plots
 		\item Differenzen zwischen den einzelnen Ergebnissen der Rater und Software\\$\rightarrow$ statistische Auswertung
 	\end{itemize}
 	\begin{figure}[H]
@@ -353,17 +357,12 @@ hyperref
 
 \begin{frame}{Evaluation der Tests}
 \begin{itemize}
-	\item kritische Plots bzw. Schwankungen in den ersten Stufen $\rightarrow$ VT1-Bestimmung erschwert (siehe Differenzen der Ergebnisse)
+	\item VT1-Bestimmung erschwert durch kritische Plots erschwert
 	\item Analyse der Felder 5 und 6: Plausibilitätsprüfung des Verlaufs der \ve{} bzw. der \vcotwo{} zur W\\$\rightarrow$ Annahme: idealerweise lineare Zunahme~(\cite{Ruehle.2012})
-	\item Erkenntnis: Schwankungen zurückzuführen auf Fehler im Algorithmus bei Berechnung der Atemfrequenz
-	\item neue Messungen bzw. eine erneute Auswertung könnte veränderte Ergebnisse liefern
-	\item für alle Testmessungen konnten charakteristische Graphen generiert werden
-	\item alle erhobenen Messwerte lagen innerhalb der Genauigkeitsgrenzen der Sensoren
+	\item Erkenntnis: Schwankungen zurückzuführen auf Fehler im Algorithmus
+	\item Für alle Testmessungen konnten charakteristische Graphen generiert werden
+	\item Alle erhobenen Messwerte lagen innerhalb der maximal zulässigen Grenzwerte der Sensoren
 \end{itemize}
-\begin{center}
-\vspace{3ex}
-$\rightarrow$ Hypothese: Der metabolicscan kann für die Spiroergometrie genutzt werden.
-\end{center}
 \end{frame}
 
 \begin{frame}{Evaluation der Methoden}
@@ -387,23 +386,21 @@ $\rightarrow$ Hypothese: Der metabolicscan kann für die Spiroergometrie genutzt
 
 \begin{frame}{Evaluation der Methoden}
 \begin{itemize}
-	\item V-Slope-Plots häufig nicht differenzierbar $\rightarrow$ fehlerhafter Algorithmus zur Bestimmung der Atemfrequenz (AF) $\rightarrow$ viele Differenzen: $r = 0,526$
-	\item Schwankungen der \eqotwo-Kurve bzw. kein eindeutiger Tiefpunkt $\rightarrow$ häufiger große Differenzen zwischen den Ergebnissen: $r = 0,464$
-	\item mit einem Modell nach W. Kindermann ist die Trainingszonendefinition nur von VT2 abhängig (\cite{Kindermann.2004}) $\rightarrow$ VT1 zum Erreichen des Zieles nicht zwingend erforderlich
-	\item mit RQ=1-Methode 9 von 28 Tests nicht auswertbar; bei auswertbaren Plots: häufig hohe Differenzen zu anderen Methoden
-	\item Vergleich mit HUNT 3: 15 von 28 Ergebnissen befinden sich innerhalb des geschlechts- und altersspezifischen Durchschnitts (trotz unterschiedlicher Belastungsprotokolle)\\$\rightarrow$ 12 Ergebnisse eine Stufe niedriger (plausibel, da muskulärer Wirkungsgrad auf Laufband höher ist und Schwelle später erreicht wird~(\cite{Kroidl.2015}))
+	\item V-Slope-Plots häufig nicht differenzierbar $\rightarrow$ viele Differenzen $\rightarrow$ $r = 0,526$
+	\item Schwankungen der \eqotwo-Kurve $\rightarrow$ häufiger große Differenzen $\rightarrow$: $r = 0,464$
+	\item Mit einem Modell nach W. Kindermann ist die Trainingszonendefinition nur von VT2 abhängig (\cite{Kindermann.2004})\\$\rightarrow$ VT1 zum Erreichen des Zieles nicht zwingend erforderlich
+	\item Mit RQ=1-Methode 9 von 28 Tests nicht auswertbar; bei auswertbaren Plots: häufig hohe Differenzen zu anderen Methoden
+	\item Vergleich mit HUNT 3: 15 von 28 Ergebnissen befinden sich innerhalb des geschlechts- und altersspezifischen Durchschnitts\\$\rightarrow$ 12 Ergebnisse eine Stufe niedriger (plausibel, da muskulärer Wirkungsgrad sowie \votwo{} auf Laufband höher und Schwelle später erreicht~(\cite{Kroidl.2015}))
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Fazit \& Ausblick}
 \begin{itemize}
-	\item mit \eqcotwo{} wurde eine genauere Methode zur VT2-Bestimmung erarbeitet
-	\item mit dieser Methode können realistische Trainingszonen nach dem Modell von Kindermann definiert werden
-	\item der Software-Algorithmus zur grafischen Verarbeitung sollte noch weiter optimiert werden
-	\item Mittelung der Messwerte über die Gesamtanzahl der Atemzüge pro Stufe wegen des Algorithmusfehlers problematisch $\rightarrow$ evtl. Alternative: gleitende Mittelung
-	\item Alternativen zum Mundstück könnten Atmung des Probanden optimieren/erleichtern\\$\rightarrow$ evtl. Reduktion von Messfehlern
-	\item einige Einflussfaktoren sind bei der Durchführung zu beachten: probandenbedingt, anwenderbedingt, umweltbedingt\\$\rightarrow$ Produkt- und Konzept-Schulungen durch cardioscan Academy sind wichtig
-	\item \eqcotwo-Algorithmus wird in die CCPS implementiert
+	\item Mit \eqcotwo{} wurde eine genauere Methode zur VT2-Bestimmung erarbeitet
+	\item Trainingszonen sind nach dem Modell von Kindermann damit definierbar
+	\item Gleitende Mittelung als evtl. Alternative zur Mittelung der Messwerte interessant
+	\item Alternativen zum Mundstück könnten Atmung des Probanden optimieren/erleichtern\\$\rightarrow$ Reduktion von Messfehlern
+	\item Einige Einflussfaktoren sind bei der Durchführung zu beachten: probandenbedingt, anwenderbedingt, umweltbedingt\\$\rightarrow$ Produkt- und Konzept-Schulungen durch cardioscan Academy sind wichtig
 \end{itemize}
 \end{frame}
 

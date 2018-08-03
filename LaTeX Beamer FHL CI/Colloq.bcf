@@ -1990,12 +1990,13 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">DSSV.2018</bcf:citekey>
-    <bcf:citekey order="2">Westhoff.2012</bcf:citekey>
+    <bcf:citekey order="2">DSSV.2018</bcf:citekey>
     <bcf:citekey order="3">Westhoff.2012</bcf:citekey>
-    <bcf:citekey order="4">Trappe.2000</bcf:citekey>
-    <bcf:citekey order="5">Ruehle.2012</bcf:citekey>
-    <bcf:citekey order="6">Kindermann.2004</bcf:citekey>
-    <bcf:citekey order="7">Kroidl.2015</bcf:citekey>
+    <bcf:citekey order="4">Westhoff.2012</bcf:citekey>
+    <bcf:citekey order="5">Trappe.2000</bcf:citekey>
+    <bcf:citekey order="6">Ruehle.2012</bcf:citekey>
+    <bcf:citekey order="7">Kindermann.2004</bcf:citekey>
+    <bcf:citekey order="8">Kroidl.2015</bcf:citekey>
     <bcf:citekey order="0">*</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
