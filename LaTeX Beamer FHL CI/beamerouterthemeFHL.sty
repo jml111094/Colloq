@@ -25,6 +25,16 @@
 %  \vskip2pt%
 }
 
+\setbeamertemplate{section in toc}{%
+	\leavevmode\leftskip=1.75ex%
+	\llap{%
+		\usebeamerfont*{section number projected}%
+		\usebeamercolor[bg]{white}%
+		\vrule width2.25ex height1.85ex depth.4ex%
+		\hskip-2.25ex%
+		\hbox to2.25ex{\hfil\color{fg}\inserttocsectionnumber\hfil}}%
+	\kern1.25ex\inserttocsection\par}
+
 
 \defbeamertemplate*{footline}{FHL theme}
 {%
@@ -65,6 +75,7 @@
   	\end{beamercolorbox}%
   	\fi
 }
+
 
 \mode
 <all>
