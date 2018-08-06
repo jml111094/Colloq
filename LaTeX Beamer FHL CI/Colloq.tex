@@ -213,13 +213,12 @@ hyperref
 \begin{itemize}
 	\item Testmessungen mit 28 internen und externen Probanden unter gleichen Bedingungen (räumliche Gegebenheiten, Ernährungszustand etc.)
 	\item Probanden: m/w, 19 bis 58 Jahre, Sportler und Nicht-Sportler, Raucher und Nichtraucher
-	\item Anamnesegespräch + Ruhe-EKG + Bestimmung der ungefähren Soll-Belastung und des individuellen Belastungsprotokolls mit Rücksicht auf Trainingszustand
+	\item Anamnesegespräch + Ruhe-EKG + Protokollberechnung
 	\item Leerlastphase (\SI{2}{\minute}) $\rightarrow$ Ruhestoffwechselmessung $\rightarrow$ Belastungsphase
 	\item Belastungsphase: \SI{2}{\minute} (\SI{90}{\second} frei, \SI{30}{\second} messen) $\rightarrow$ Inkrement: \SI{25}{\watt} nach WHO-Schema~(\cite{Trappe.2000})
 	\item Speichern der Sensor-Rohdaten in Textdateien
 	\item Weiterverarbeitung + Auswertung durch ein MATLAB-Programm
 	\item Schwellenbestimmung: manuell durch zwei Rater + algorithmisch
-	\item Statistische und methodenkritische Analyse der Ergebnisse
 \end{itemize}
 \end{frame}
 
@@ -230,7 +229,7 @@ hyperref
 	\item Modularer Aufbau: Atemmodul mit Flowsensor + Analysemodul mit CO\textsubscript{2}/O\textsubscript{2}-Sensormodul
 	\item Atemmodul: Messung der Strömungsgeschwindigkeit der Inspirations- und Exspirationsluft
 	\item Berechnung des Strömungsvolumens durch mathematische Integration über die Zeit
-	\item Pumpe saugt Luftanteil durch Probenschlauch zum Analysemodul
+	\item Pumpe saugt Luftanteil durch Nafion-Schlauch zum Analysemodul
 	\item Analysemodul: CO\textsubscript{2}-Messung durch Infrarotlichtabsorption
 	\item Weiterleitung zum galvanischen O\textsubscript{2}-Sensor $\rightarrow$ O\textsubscript{2}-Konzentration ist proportional zu fließendem Strom
 \end{itemize}
@@ -257,26 +256,13 @@ hyperref
 		\item Vorwiegend bei den VT1-Methoden teilweise nicht-differenzierbare Plots
 		\item Differenzen zwischen den einzelnen Ergebnissen der Rater und Software\\$\rightarrow$ statistische Auswertung
 	\end{itemize}
-	\begin{figure}[H]
-		\begin{subfigure}[c]{0.45\linewidth}
-			\centering
-			\includegraphics[width=\linewidth]{Bilder/plot_6w.jpg}
-			\subcaption{Blankoplot}
-		\end{subfigure}
-		\hfil
-		\begin{subfigure}[c]{0.45\linewidth}
-			\centering
-			\includegraphics[width=\linewidth]{Bilder/auto_6.png}
-			\subcaption{Plot mit algorithmisch bestimmten Schwellen}
-		\end{subfigure}
-	\end{figure}
 \end{frame}
 
 \begin{frame}{Beispielplot 1}
 	\begin{figure}[H]
 		\centering
 			\includegraphics[width=0.85\linewidth]{Bilder/auto_6.png}
-			\caption{Beispielplot der Probandin 6w}
+			\caption{Beispielplot der Probandin 6w mit algorithmisch bestimmten Schwellen}
 	\end{figure}
 \end{frame}
 
@@ -284,7 +270,7 @@ hyperref
 	\begin{figure}[H]
 		\centering
 			\includegraphics[width=0.85\linewidth]{Bilder/auto_21.png}
-			\caption{Beispielplot des Probanden 21m}
+			\caption{Beispielplot des Probanden 21m mit algorithmisch bestimmten Schwellen}
 	\end{figure}
 \end{frame}
 
@@ -357,40 +343,31 @@ hyperref
 
 \begin{frame}{Evaluation der Tests}
 \begin{itemize}
-	\item VT1-Bestimmung erschwert durch kritische Plots erschwert
-	\item Analyse der Felder 5 und 6: Plausibilitätsprüfung des Verlaufs der \ve{} bzw. der \vcotwo{} zur W\\$\rightarrow$ Annahme: idealerweise lineare Zunahme~(\cite{Ruehle.2012})
-	\item Erkenntnis: Schwankungen zurückzuführen auf Fehler im Algorithmus
-	\item Für alle Testmessungen konnten charakteristische Graphen generiert werden
+	\item Für alle Testmessungen konnten dennoch charakteristische Graphen generiert werden
 	\item Alle erhobenen Messwerte lagen innerhalb der maximal zulässigen Grenzwerte der Sensoren
+\end{itemize}
+\vspace{4ex}
+\begin{center}
+	Der metabolicscan kann generell für die Spiroergometrie genutzt werden.
+\end{center}
+\end{frame}
+
+\begin{frame}{Evaluation der VT1}
+\begin{itemize}
+	\item V-Slope-Plots häufig nicht differenzierbar $\rightarrow$ viele Differenzen $\rightarrow$ $r = 0,526$
+	\item Schwankungen der \eqotwo-Kurve $\rightarrow$ häufige große Differenzen $\rightarrow$ $r = 0,464$
+	\item Analyse des Verlaufs der \ve{} bzw. der \vcotwo{} zur W\\$\rightarrow$ Annahme: idealerweise lineare Zunahme~(\cite{Ruehle.2012})
+	\item Erkenntnis: Schwankungen zurückzuführen auf Fehler im Algorithmus
+	\item Mit einem Modell nach W. Kindermann ist die Trainingszonendefinition nur von VT2 abhängig (\cite{Kindermann.2004})\\$\rightarrow$ VT1 zum Erreichen des Zieles nicht zwingend erforderlich
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Evaluation der Methoden}
-\begin{columns}
-\begin{column}{0.5\linewidth}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=\linewidth]{Bilder/korr_eqco2.eps}
-	\caption{Regressionsanalyse der \eqcotwo-Ergebnisse}
-\end{figure}
-\end{column}
-\begin{column}{0.5\linewidth}
-	\eqcotwo{} ist die Methode mit den geringsten Abweichungen $\rightarrow$ optimale Methode\\
-	\vspace{3ex}
-	Korrelationskoeffizient $r = 0,912$\\
-	\vspace{3ex}
-	\ve/\vcotwo{} als geeignete Referenzmethode mit $r = 0,816$
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Evaluation der Methoden}
+\begin{frame}{Evaluation der VT2}
 \begin{itemize}
-	\item V-Slope-Plots häufig nicht differenzierbar $\rightarrow$ viele Differenzen $\rightarrow$ $r = 0,526$
-	\item Schwankungen der \eqotwo-Kurve $\rightarrow$ häufiger große Differenzen $\rightarrow$: $r = 0,464$
-	\item Mit einem Modell nach W. Kindermann ist die Trainingszonendefinition nur von VT2 abhängig (\cite{Kindermann.2004})\\$\rightarrow$ VT1 zum Erreichen des Zieles nicht zwingend erforderlich
-	\item Mit RQ=1-Methode 9 von 28 Tests nicht auswertbar; bei auswertbaren Plots: häufig hohe Differenzen zu anderen Methoden
-	\item Vergleich mit HUNT 3: 15 von 28 Ergebnissen befinden sich innerhalb des geschlechts- und altersspezifischen Durchschnitts\\$\rightarrow$ 12 Ergebnisse eine Stufe niedriger (plausibel, da muskulärer Wirkungsgrad sowie \votwo{} auf Laufband höher und Schwelle später erreicht~(\cite{Kroidl.2015}))
+	\item \eqcotwo{} ist die Methode mit den geringsten Abweichungen $\rightarrow$ optimale Methode\\$\rightarrow$ Korrelationskoeffizient $r = 0,912$
+	\item \ve/\vcotwo{} als geeignete Referenzmethode mit $r = 0,816$
+	\item Mit RQ=1-Methode 9 von 28 Tests nicht auswertbar
+	\item Vergleich mit HUNT 3: 15 von 28 Ergebnissen befinden sich innerhalb des geschlechts- und altersspezifischen Durchschnitts
 \end{itemize}
 \end{frame}
 
@@ -398,7 +375,7 @@ hyperref
 \begin{itemize}
 	\item Mit \eqcotwo{} wurde eine genauere Methode zur VT2-Bestimmung erarbeitet
 	\item Trainingszonen sind nach dem Modell von Kindermann damit definierbar
-	\item Gleitende Mittelung als evtl. Alternative zur Mittelung der Messwerte interessant
+	\item Alternative Mittelungsverfahren für die erkannten Atemzüge möglich
 	\item Alternativen zum Mundstück könnten Atmung des Probanden optimieren/erleichtern\\$\rightarrow$ Reduktion von Messfehlern
 	\item Einige Einflussfaktoren sind bei der Durchführung zu beachten: probandenbedingt, anwenderbedingt, umweltbedingt\\$\rightarrow$ Produkt- und Konzept-Schulungen durch cardioscan Academy sind wichtig
 \end{itemize}
